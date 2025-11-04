@@ -1,0 +1,58 @@
+{
+  "info": {
+    "name": "ClickCart.pk API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "List Products",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/products/list.php",
+          "host": ["{{base_url}}"],
+          "path": ["api", "products", "list.php"]
+        }
+      }
+    },
+    {
+      "name": "Seller Dashboard Metrics",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Cookie",
+            "value": "{{session_cookie}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/seller/dashboard.php",
+          "host": ["{{base_url}}"],
+          "path": ["api", "seller", "dashboard.php"]
+        }
+      }
+    },
+    {
+      "name": "Payment Webhook (Mock)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"order_number\": \"{{order_number}}\",\n  \"gateway\": \"mock\",\n  \"status\": \"paid\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/webhook/payment.php",
+          "host": ["{{base_url}}"],
+          "path": ["api", "webhook", "payment.php"]
+        }
+      }
+    }
+  ]
+}
